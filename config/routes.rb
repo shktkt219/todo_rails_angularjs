@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   namespace :api, defaults: { format: :json } do
     resources :todo_lists, only: [:index, :show, :create, :destroy] do
       resources :todos, except: [:index, :new, :edit, :show]
