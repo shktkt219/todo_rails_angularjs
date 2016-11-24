@@ -1,4 +1,4 @@
-app = angular.module('todoApp', [])
+app = angular.module('todoApp', ['ui.bootstrap'])
 
 app.config ($httpProvider) ->
   authToken = $("meta[name=\"csrf-token\"]").attr("content")
