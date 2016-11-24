@@ -13,3 +13,6 @@ angular.module('todoApp').controller "TodoListCtrl", ($scope) ->
     todo = { 'description' : todoDescription }
     $scope.list.todos.push(todo)
     $scope.todoDescription = ""
+
+  $scope.deleteTodo = (todo) ->
+    $scope.list.todos.splice($scope.list.todos.indexOf(todo), 1)
