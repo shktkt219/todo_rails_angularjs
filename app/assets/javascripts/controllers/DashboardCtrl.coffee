@@ -2,7 +2,7 @@ angular.module('todoApp').controller "DashboardCtrl", ($scope, TodoList) ->
 
   $scope.init = ->
     @listsService = new TodoList(serverErrorHandler)
-    @scope.lists = @listsService.all()
+    $scope.lists = @listsService.all()
 
   $scope.createList = (listName) ->
     list = @listsService.create(name: listName)

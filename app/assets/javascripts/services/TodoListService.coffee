@@ -16,7 +16,7 @@ angular.module('todoApp').factory 'TodoList', ($resource, $http) ->
         @errorHandler)
 
     create: (attrs) ->
-      new @service(todo_list: attrs).$save((list) -> attrs.id = list.id), @errorHandler
+      new @service(todo_list: attrs).$save ((list) -> attrs.id = list.id), @errorHandler
       attrs
 
     delete: (list) ->
