@@ -1,7 +1,7 @@
 angular.module('todoApp').factory 'TodoList', ($resource, $http) ->
   class TodoList
     constructor: (errorHandler) ->
-      @service = $resource('/api/todo_list/:id',
+      @service = $resource('/api/todo_lists/:id',
         { id: '@id' },
         { update: { method: 'PUT' }})
       @errorHandler = errorHandler
