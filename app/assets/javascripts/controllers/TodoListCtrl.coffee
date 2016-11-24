@@ -4,13 +4,13 @@ angular.module('todoApp').controller "TodoListCtrl", ($scope) ->
     $scope.list = {
       'name': 'House Chores',
       'todos': [
-        { 'description' : 'Wash dishes' },
-        { 'description' : 'Go shopping' }
+        { 'description' : 'Wash dishes', 'done' : false },
+        { 'description' : 'Go shopping', 'done' : false }
       ]
     }
 
   $scope.addTodo = (todoDescription) ->
-    todo = { 'description' : todoDescription }
+    todo = { 'description' : todoDescription, 'done' : false }
     $scope.list.todos.push(todo)
     $scope.todoDescription = ""
 
