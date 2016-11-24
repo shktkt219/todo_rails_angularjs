@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  get 'templates/index'
+  root 'templates#index'
+  get '/dashboard' => 'templates#dashboard'
+  get '/todo_list' => 'templates#todo_list'
 
   namespace :api, defaults: { format: :json } do
     resources :todo_lists, only: :show do

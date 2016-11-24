@@ -1,0 +1,51 @@
+<div class="container" ng-controller="DashboardCtrl" ng-init="init()">
+   <br>
+   <h1>Dashboard</h1>
+   <br>
+
+   <div class="panel panel-info dashboard-list">
+     <div class="panel-heading">
+       <h4>All Todo List</h4>
+     </div>
+
+     <ul class="list-group" ng-show="lists == 0">
+       <li class="list-group-item">
+         No List
+       </li>
+     </ul>
+
+     <form id="new_list" ng-submit="createList(listName)">
+       <div class="input-group">
+         <input id="todoDescription"
+                class="form-control input-lg"
+                type="text"
+                autofocus="autofocus"
+                placeholder="Mew List Name"
+                maxlength="255"
+                ng-model="listName">
+        <span class="input-group-btn">
+          <button class="btn btn-primary btn-lg"
+                  type="submit">Create</button>
+        </span>
+       </div>
+     </form>
+
+     <ul class="list-group">
+       <li class="list-group-item"
+           ng-repeat="list in lists">
+           <div class="todo-list-description">
+             <a href="/todo_lists/{{ list.id }}">
+               {{ list.name }}
+             </a>
+           </div>
+           <div class="todo-list-buttons pull-right">
+             <button type="button"
+                     class="btn btn-danger btn-xs pull-right"
+                     ng-click="deleteList(list, $index)">
+                     Delete
+             </button>
+           </div>
+       </li>
+     </ul>
+   </div>
+</div>
