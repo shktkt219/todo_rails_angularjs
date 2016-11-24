@@ -1,10 +1,11 @@
 <div class="container" ng-controller="TodoListCtrl" ng-init="init()">
+  <br>
   <h1>Todo List</h1>
-
+  <br>
   <div class="panel panel-info">
 
     <div class="panel-heading">
-      <span>{{list.name}}</span>
+      <h4>{{list.name}}</h4>
     </div>
 
     <form id="new_todo">
@@ -28,7 +29,7 @@
         </div>
         <div class="todo-buttons pull-right">
           <button class="btn btn-danger btn-xs pull-right" type="button">
-            <span class="glyphicon glyphicon-ban-circle"></span>
+            <span>Delete</span>
           </button>
         </div>
       </li>
