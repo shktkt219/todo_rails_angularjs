@@ -8,3 +8,8 @@ angular.module('todoApp').controller "TodoListCtrl", ($scope) ->
         { 'description' : 'Go shopping' }
       ]
     }
+
+  $scope.addTodo = (todoDescription) ->
+    todo = { 'description' : todoDescription }
+    $scope.list.todos.push(todo)
+    $scope.todoDescription = ""
