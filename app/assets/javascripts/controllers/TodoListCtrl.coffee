@@ -1,13 +1,10 @@
-angular.module('todoApp').controller "TodoListCtrl", ($scope) ->
+angular.module('todoApp').controller "TodoListCtrl", ($scope, TodoList, Todo) ->
 
   $scope.init = ->
-    $scope.list = {
-      'name': 'House Chores',
-      'todos': [
-        { 'description' : 'Wash dishes', 'done' : false },
-        { 'description' : 'Go shopping', 'done' : false }
-      ]
-    }
+    @todoListService = new TodoList(serverErrorHandler)
+    @todoService = new Todo(1, serverErrorHandler)
+
+    $scope.list = @todoListService.find(1)
 
   $scope.addTodo = (todoDescription) ->
     todo = { 'description' : todoDescription, 'done' : false }
@@ -16,3 +13,6 @@ angular.module('todoApp').controller "TodoListCtrl", ($scope) ->
 
   $scope.deleteTodo = (todo) ->
     $scope.list.todos.splice($scope.list.todos.indexOf(todo), 1)
+
+  serverErrorHandler = ->
+    alert("Server Error")
