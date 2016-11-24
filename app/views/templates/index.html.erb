@@ -27,7 +27,8 @@
           ng-class="{ done: todo.done }">
         <div class="todo-done">
           <input type="checkbox"
-                 ng-model="todo.done">
+                 ng-model="todo.done"
+                 ng-click="toggleTodo(todo)">
         </div>
         <div class="todo-description">
           <span class="done-{{todo.done}}">{{todo.description}}</span>
