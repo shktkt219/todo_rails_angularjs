@@ -11,6 +11,7 @@ module Api
 
     def create
       list = TodoList.create(todo_list_params)
+      render json: list, status: 201
     end
 
     def destroy
