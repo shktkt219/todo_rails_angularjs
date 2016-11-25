@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get '/dashboard' => 'templates#index'
   get '/todo_lists/:id' => 'templates#index'
   get '/help' => 'templates#index'
-  get '/settings' => 'templates#index'
+  get '/about' => 'templates#index'
   get '/templates/:path.html' => 'templates#template', constraints: { path: /.+/ }
 
   namespace :api, defaults: { format: :json } do
