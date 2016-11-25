@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  devise_for :users
   root 'templates#index'
   get '/dashboard' => 'templates#dashboard'
   get '/todo_lists/id' => 'templates#todo_list'
