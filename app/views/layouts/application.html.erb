@@ -12,10 +12,11 @@
       <ul class="nav nav-pills">
         <li role="presentation"><a ui-sref="home">Home</a></li>
         <li role="presentation"><a ui-sref="home.dashboard">Dashboard</a></li>
-        <li role="presentation"><a ui-sref="#">Help</a></li>
-        <li role="presentation"><a ui-sref="#">Settings</a></li>
+        <li role="presentation"><a ui-sref="home.help">Help</a></li>
+        <li role="presentation"><a ui-sref="home.settings">Settings</a></li>
       </ul>
     </div>
+    <div ui-view></div>
   </header>
 
   <%= yield %>
