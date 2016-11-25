@@ -4,8 +4,7 @@ app.config ($httpProvider) ->
   authToken = $("meta[name=\"csrf-token\"]").attr("content")
   $httpProvider.defaults.headers.common["X-CSRF-TOKEN"] = authToken
 
-app.config ($stateProvider, $locationProvider) ->
-  $locationProvider.html5Mode true
+app.config ($stateProvider) ->
   $stateProvider.state('home',
      url: '/'
      templateUrl: '/templates/index.html'
@@ -13,6 +12,12 @@ app.config ($stateProvider, $locationProvider) ->
      url: '/dashboard'
      templateUrl: '/templates/dashboard.html'
      controller: 'DashboardCtrl'
+    ).state('home.help',
+      url: '/help'
+      templateUrl: '/templates/help.html'
+    ).state('home.settings',
+      url: '/settings'
+      templateUrl: '/templates/settings.html'
     ).state('todolist',
      url: '/todo_lists/:list_id'
      templateUrl: '/templates/todo_list.html'

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html ng-app="todoApp">
 <head>
-  <base href="/">
   <title>TodoRailsAngularjs</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -11,8 +10,8 @@
   <header class="navbar navbar-default">
     <div class="navbar-header">
       <ul class="nav nav-pills">
-        <li role="presentation"><a ui-sref="dashboard">Home</a></li>
-        <li role="presentation"><a ui-sref="#">Profile</a></li>
+        <li role="presentation"><a ui-sref="home">Home</a></li>
+        <li role="presentation"><a ui-sref="home.dashboard">Dashboard</a></li>
         <li role="presentation"><a ui-sref="#">Help</a></li>
         <li role="presentation"><a ui-sref="#">Settings</a></li>
       </ul>
