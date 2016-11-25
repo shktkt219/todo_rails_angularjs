@@ -7,17 +7,17 @@ app.config ($httpProvider) ->
 app.config ($stateProvider, $urlRouterProvider) ->
   $stateProvider.state('home',
      url: '/'
-     templateUrl: 'views/templates/index.html'
+     redirectTo:  'dashboard'
     ).state('home.dashboard',
      url: 'dashboard'
-     templateUrl: 'views/templates/dashboard.html'
+     templateUrl: '/templates/dashboard.html'
      controller: 'DashboardCtrl'
     ).state('home.help',
       url: 'help'
-      templateUrl: 'views/templates/help.html'
+      templateUrl: '/templates/help.html'
     ).state('home.settings',
       url: 'settings'
-      templateUrl: 'views/templates/settings.html'
+      templateUrl: '/templates/settings.html'
     ).state('todolist',
      url: '/todo_lists/:list_id'
      templateUrl: '/templates/todo_list.html'

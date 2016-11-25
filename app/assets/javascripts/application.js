@@ -14,7 +14,7 @@
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require turbolinks
-//= require angular.min
+//= require angular
 //= require angular-resource.min
 //= require angular-ui-router
 //= require ui-bootstrap-tpls-2.2.0.min
