@@ -10,14 +10,12 @@
 <body>
   <header class="navbar navbar-default">
     <div class="navbar-header">
-      <a class="navbar-brand" ui-sref="home">Home</a>
-      <% if user_signed_in? %>
-        <a class="navbar-brand" ui-sref="#">Profile</a>
-        <a class="navbar-brand" ui-sref="home.dashboard">Dashboard</a>
-        <a class="navbar-brand" ui-sref="#">Log Out</a>
-      <% else %>
-        <a class="navbar-brand" ui-sref="#">Log In</a>
-      <% end %>
+      <ul class="nav nav-pills">
+        <li role="presentation"><a ui-sref="dashboard">Home</a></li>
+        <li role="presentation"><a ui-sref="#">Profile</a></li>
+        <li role="presentation"><a ui-sref="#">Help</a></li>
+        <li role="presentation"><a ui-sref="#">Settings</a></li>
+      </ul>
     </div>
   </header>
 
