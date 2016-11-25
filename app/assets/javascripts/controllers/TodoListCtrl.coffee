@@ -1,10 +1,10 @@
-angular.module('todoApp').controller "TodoListCtrl", ($scope, $routeParams, TodoList, Todo) ->
+angular.module('todoApp').controller "TodoListCtrl", ($scope, $stateParams, TodoList, Todo) ->
 
   $scope.init = ->
     @todoListService = new TodoList(serverErrorHandler)
-    @todoService     = new Todo($routeParams.list_id, serverErrorHandler)
+    @todoService     = new Todo($stateParams.list_id, serverErrorHandler)
 
-    $scope.list = @todoListService.find($routeParams.list_id, (res)-> $scope.totalTodos = res.totalTodos)
+    $scope.list = @todoListService.find($stateParams.list_id, (res)-> $scope.totalTodos = res.totalTodos)
 
   $scope.addTodo = (todoDescription) ->
     todo = @todoService.create(description: todoDescription, done: false)
