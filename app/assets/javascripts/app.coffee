@@ -9,7 +9,7 @@ app.config ($stateProvider, $locationProvider) ->
   $stateProvider.state('home',
      url: '/'
      templateUrl: '/templates/index.html'
-    ).state('dashboard',
+    ).state('home.dashboard',
      url: '/dashboard'
      templateUrl: '/templates/dashboard.html'
      controller: 'DashboardCtrl'

@@ -8,10 +8,22 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+  <header class="navbar navbar-default">
+    <div class="navbar-header">
+      <a class="navbar-brand" ui-sref="home">Home</a>
+      <% if user_signed_in? %>
+        <a class="navbar-brand" ui-sref="#">Profile</a>
+        <a class="navbar-brand" ui-sref="home.dashboard">Dashboard</a>
+        <a class="navbar-brand" ui-sref="#">Log Out</a>
+      <% else %>
+        <a class="navbar-brand" ui-sref="#">Log In</a>
+      <% end %>
+    </div>
+  </header>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
 
-<%= yield %>
+  <%= yield %>
 
 </body>
 </html>
