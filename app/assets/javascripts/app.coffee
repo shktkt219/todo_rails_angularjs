@@ -4,10 +4,10 @@ app.config ($httpProvider) ->
   authToken = $("meta[name=\"csrf-token\"]").attr("content")
   $httpProvider.defaults.headers.common["X-CSRF-TOKEN"] = authToken
 
-app.config ($stateProvider, $urlRouterProvider) ->
+app.config ($stateProvider) ->
   $stateProvider.state('home',
      url: '/'
-     redirectTo:  'dashboard'
+     templateUrl: '/templates/index.html'
     ).state('home.dashboard',
      url: 'dashboard'
      templateUrl: '/templates/dashboard.html'
@@ -18,11 +18,11 @@ app.config ($stateProvider, $urlRouterProvider) ->
     ).state('home.settings',
       url: 'settings'
       templateUrl: '/templates/settings.html'
-    ).state('todolist',
-     url: '/todo_lists/:list_id'
+    ).state('home.todolist',
+     url: 'todo_lists/:list_id'
      templateUrl: '/templates/todo_list.html'
      controller: 'TodoListCtrl')
-  $urlRouterProvider.otherwise '/'
+
 
 $(document).on 'page:load', ->
   $('[ng-app]').each ->
