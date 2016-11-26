@@ -18,5 +18,14 @@ angular.module('todoApp').controller "TodoListCtrl", ($scope, $stateParams, Todo
   $scope.toggleTodo = (todo) ->
     @todoService.update(todo, done: todo.done)
 
+  $scope.filter =
+    done: done: true
+    remaining: done: false
+
+  $scope.currentFilter = null
+
+  $scope.changeFilter = (filter) ->
+    $scope.currentFilter = filter
+
   serverErrorHandler = ->
     alert("Server Error")
