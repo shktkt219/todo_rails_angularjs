@@ -22,8 +22,6 @@ angular.module('todoApp').controller "TodoListCtrl", ($scope, $stateParams, Todo
     done: done: true
     remaining: done: false
 
-  $scope.currentFilter = null
-
   $scope.changeFilter = (filter) ->
     $scope.currentFilter = filter
 

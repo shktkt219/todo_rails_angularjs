@@ -31,8 +31,8 @@
         <button type="button"
                 class="btn btn-default"
                 ng-click="changeFilter()"
-                ng-class="active">
-                <span class="badge">All</span>
+                ng-class="{active: !currentFilter}">
+                <span class="badge">Task All</span>
         </button>
       </div>
       <div class="btn-group" role="group">
@@ -40,7 +40,6 @@
                 class="btn btn btn-default"
                 ng-click="changeFilter(filter.remaining)"
                 ng-class="{active: currentFilter == filter.remaining}">Incompleted
-                <span class="badge">{{ list.todos.remaining.length }}</span>
         </button>
       </div>
       <div class="btn-group" role="group">
@@ -48,13 +47,7 @@
                 class="btn btn-default"
                 ng-click="changeFilter(filter.done)"
                 ng-class="{active: currentFilter == filter.done}">Completed
-                <span class="badge">{{ doneCount }}</span>
         </button>
-      </div>
-      <div class="btn-group" role="group">
-        <button type="button"
-                class="btn btn-default">
-                <span class="badge">Delete All Completed</span></button>
       </div>
     </div>
 
