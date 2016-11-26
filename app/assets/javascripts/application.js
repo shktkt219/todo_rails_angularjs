@@ -17,6 +17,7 @@
 //= require angular
 //= require angular-resource.min
 //= require angular-ui-router
+//= require angular-messages
 //= require ui-bootstrap-tpls-2.2.0.min
 //= require app
 //= require_tree .
