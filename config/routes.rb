@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   root 'templates#index'
+  get '/home' => 'templates#index'
   get '/dashboard' => 'templates#index'
   get '/todo_lists/:id' => 'templates#index'
   get '/help' => 'templates#index'

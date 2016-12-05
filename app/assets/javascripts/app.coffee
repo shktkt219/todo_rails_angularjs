@@ -4,7 +4,7 @@ app.config ($httpProvider) ->
   authToken = $("meta[name=\"csrf-token\"]").attr("content")
   $httpProvider.defaults.headers.common["X-CSRF-TOKEN"] = authToken
 
-app.config ($stateProvider, $urlRouterProvider) ->
+app.config ($stateProvider, $urlRouterProvider, $locationProvider) ->
 
   $urlRouterProvider.otherwise('/home')
 
@@ -28,6 +28,7 @@ app.config ($stateProvider, $urlRouterProvider) ->
      url: 'todo_lists/:list_id'
      templateUrl: '/templates/todo_list.html'
      controller: 'TodoListCtrl')
+  $locationProvider.html5Mode(true)
 
 
 $(document).on 'page:load', ->
