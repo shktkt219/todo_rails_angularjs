@@ -12,20 +12,20 @@ app.config ($stateProvider, $urlRouterProvider, $locationProvider) ->
      url: '/home'
      templateUrl: '/templates/home.html'
     ).state('index',
-     url: '/'
+     url: '/index'
      templateUrl: '/templates/index.html'
-    ).state('index.dashboard',
-     url: 'dashboard'
-     templateUrl: '/templates/dashboard.html'
-     controller: 'DashboardCtrl'
     ).state('help',
       url: '/help'
       templateUrl: '/templates/help.html'
     ).state('about',
       url: '/about'
       templateUrl: '/templates/about.html'
+    ).state('index.dashboard',
+     url: '/dashboard'
+     templateUrl: '/templates/dashboard.html'
+     controller: 'DashboardCtrl'
     ).state('index.todolist',
-     url: 'todo_lists/:list_id'
+     url: '/todo_lists/:list_id'
      templateUrl: '/templates/todo_list.html'
      controller: 'TodoListCtrl')
   $locationProvider.html5Mode(true)
