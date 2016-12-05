@@ -14,13 +14,16 @@
         <ul class="nav navbar-nav">
             <li><a ui-sref="home">Home</a></li>
             <li><a ui-sref="index.dashboard">Dashboard</a></li>
-            <li><a ui-sref="index.about">About</a></li>
-            <li><a ui-sref="index.help">Help</a></li>
+            <li><a ui-sref="about">About</a></li>
+            <li><a ui-sref="help">Help</a></li>
         </ul>
     </div>
   </header>
-
-  <%= yield %>
+  <br>
+  <br>
+  <div class="container">
+    <ui-view></ui-view>
+  </div>
 
 </body>
 </html>
