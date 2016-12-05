@@ -18,11 +18,11 @@ app.config ($stateProvider, $urlRouterProvider, $locationProvider) ->
      url: 'dashboard'
      templateUrl: '/templates/dashboard.html'
      controller: 'DashboardCtrl'
-    ).state('index.help',
-      url: 'help'
+    ).state('help',
+      url: '/help'
       templateUrl: '/templates/help.html'
-    ).state('index.about',
-      url: 'about'
+    ).state('about',
+      url: '/about'
       templateUrl: '/templates/about.html'
     ).state('index.todolist',
      url: 'todo_lists/:list_id'
