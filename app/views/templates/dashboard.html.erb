@@ -1,7 +1,11 @@
 <div class="container" ng-init="init()">
    <h1>Dashboard</h1>
    <br>
-
+   <strong>Search:</strong> <input type="text"
+                                   placeholder="Search List"
+                                   ng-model="searchText">
+   <br>
+   <br>
    <div class="panel panel-default dashboard-list">
      <div class="panel-heading">
        <h4>All Todo List</h4>
@@ -37,7 +41,7 @@
 
      <ul　class="list-group">
        <li class="list-group-item"
-           ng-repeat="list in lists">
+           ng-repeat="list in lists | filter:searchText">
            <div class="todo-list-description">
              <a href="/#/todo_lists/{{ list.id }}">
                {{ list.name }}
