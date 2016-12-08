@@ -1,4 +1,4 @@
-<div class="container" ng-init="init()">
+<div class="container">
    <h1>Dashboard</h1>
    <br>
    <strong>Search:</strong> <input type="text"
@@ -11,13 +11,14 @@
        <h4>All Todo List</h4>
      </div>
 
-     <ul class="list-group" ng-show="lists == 0">
+     <ul class="list-group" ng-show="ctrl.lists == 0">
        <li class="list-group-item">
          No List
        </li>
      </ul>
 
-     <form id="new_list" ng-submit="createList(listName)">
+     <form id="new_list"
+           ng-submit="ctrl.submit()">
        <div class="input-group">
          <input id="todoDescription"
                 class="form-control input-lg"
@@ -25,10 +26,10 @@
                 autofocus="autofocus"
                 placeholder="New List Name"
                 maxlength="255"
-                ng-model="listName"
+                ng-model="ctrl.list.name"
                 required="required">
-          <div ng-messages="form.listName.$error"
-               ng-if="form.listName.$touched">
+          <div ng-messages="form.ctrl.list.name.$error"
+               ng-if="form.ctrl.list.name.$touched">
             <div ng-message="required">List name is required!</div>
             <div ng-message="maxlength">Must be less than 255 characters!</div>
           </div>
@@ -41,7 +42,7 @@
 
      <ul　class="list-group">
        <li class="list-group-item"
-           ng-repeat="list in lists | filter:searchText">
+           ng-repeat="list in ctrl.lists | filter:searchText">
            <div class="todo-list-description">
              <a href="/index/todo_lists/{{ list.id }}">
                {{ list.name }}
@@ -50,7 +51,7 @@
            <div class="todo-list-buttons pull-right">
              <button type="button"
                      class="btn btn-danger btn-xs pull-right"
-                     ng-click="deleteList(list, $index)">
+                     ng-click="ctrl.remove(list.id)">
                      Delete
              </button>
            </div>

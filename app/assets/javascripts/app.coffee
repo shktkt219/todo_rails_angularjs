@@ -23,7 +23,7 @@ app.config ($stateProvider, $urlRouterProvider, $locationProvider) ->
     ).state('index.dashboard',
      url: '/dashboard'
      templateUrl: '/templates/dashboard.html'
-     controller: 'DashboardCtrl'
+     controller: 'DashboardCtrl as ctrl'
     ).state('index.todolist',
      url: '/todo_lists/:list_id'
      templateUrl: '/templates/todo_list.html'
