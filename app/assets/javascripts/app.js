@@ -46,7 +46,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
     .state('index.todolist', {
       url: 'todo_lists/:list_id',
       templateUrl: '/templates/todo_list.html',
-      controller: 'TodoListCtrl as vm'
+      controller: 'TodoListCtrl as ctrl'
     })
 
    $locationProvider.html5Mode(true);
