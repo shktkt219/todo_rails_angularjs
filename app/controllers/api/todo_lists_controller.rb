@@ -7,6 +7,7 @@ module Api
     end
 
     def show
+      render json: @todo_list, status: 201
     end
 
     def create
