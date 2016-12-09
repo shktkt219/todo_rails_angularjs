@@ -1,67 +1,42 @@
+'use strict';
+
 angular
    .module('todoApp')
-   .factory('Todo', ['$http', '$q', function($http, $q){
+   .factory('TodoService', ['$http', '$q', function($http, $q){
 
-     var STATE_URI = 'http://localhost:3000/api/todo_lists/:todo_list_id/todos/';
+     return {
 
-     var factory = {
-       getAllTodos: getAllTodos,
-       createTodo: createTodo,
-       updateTodo: updateTodo,
-       deleteTodos: deleteTodos
-     };
+       createTodo: function(todo){
+         return $http.post('http://localhost:3000/api/todo_lists/', todo)
+                     .then(function(response){
+                       return response.data;
+                     },
+                     function(errorResponse){
+                       console.error('Error while creating todo');
+                       return $q.reject(errorResponse);
+                     });
+       },
 
-     return factory
+       updateTodo: function(todo, id){
+         return $http.put('http://localhost:3000/api/todo_lists/'+id, todo)
+                     .then(function(response){
+                       return response.data;
+                     },
+                     function(errorResponse){
+                       console.error('Error while updating todo');
+                       return $q.reject(errorResponse);
+                     });
+       },
 
-     function getAllTodos(todoListId){
-       var deferred = $q.defer();
-       var todo_list_id = todoListId
-       $http.get(STATE_URI)
-            .then(function(response){
-              deferred.resolve(response.data);
-            },
-          function(errorResponse){
-            console.error('Error while getting todos');
-            deferred.reject(errorResponse);
-          });
-          return deferred.promise;
-     }
-
-     function createTodo(todo){
-       var deferred = $q.defer();
-       $http.post(STATE_URI, todo)
-            .then(function(response){
-              deferred.resolve(response.data);
-            },
-          function(errorResponse){
-            console.error('Error while creating todo');
-            deferred.reject(errorResponse);
-          });
-          return deferred.promise;
-     }
-
-     function updateTodo(todo, id){
-       var deferred = $q.defer();
-       $http.put(STATE_URI + id, todo)
-            .then(function(response){
-              deferred.response(response.data);
-            },
-            function(errorResponse){
-              console.error('Error while updating todo');
-              deferred.reject(errorResponse);
-            });
-            return deferred.promise;
-     }
-
-     function deleteTodos(id){
-       var deferred = $q.defer();
-       $http.delete(STATE_URI + id)
-            .then(function(response){
-              deferred.resolve(response.data);
-            },
-            function(errorResponse){
-              console.error('Error while deleting todo');
-            });
-            return deferred.promise;
+       deleteTodo: function(id){
+         return $http.delete('http://localhost:3000/api/todo_lists/'+id)
+                     .then(function(response){
+                       return response.data;
+                     },
+                     function(errorResponse){
+                       console.error('Error while deleting todo');
+                       return $q.reject(errorResponse);
+                     });
+       }
      }
 }]);
