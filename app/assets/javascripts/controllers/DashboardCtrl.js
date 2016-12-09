@@ -31,7 +31,7 @@ angular
                      });
     };
 
-    getAllTodoLists();
+    self.getAllTodoLists();
 
     self.submit = function(){
       self.createList(self.list);
