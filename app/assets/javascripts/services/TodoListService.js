@@ -17,7 +17,7 @@ angular
                     });
       },
 
-      findList: function(id){
+      findTodoList: function(id){
         return $http.get('/api/todo_lists/'+id)
                     .then(function(response){
                       return response.data;
