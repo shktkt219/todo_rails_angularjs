@@ -7,7 +7,7 @@ angular
     return {
 
       getAllTodoLists: function(){
-        return $http.get('http://localhost:3000/api/todo_lists/')
+        return $http.get('/api/todo_lists/')
                     .then(function(response){
                       return response.data;
                     },
@@ -18,7 +18,7 @@ angular
       },
 
       findList: function(id){
-        return $http.get('http://localhost:3000/api/todo_lists/'+id)
+        return $http.get('/api/todo_lists/'+id)
                     .then(function(response){
                       return response.data;
                     },
@@ -29,7 +29,7 @@ angular
       },
 
       createTodoList: function(list){
-        return $http.post('http://localhost:3000/api/todo_lists/', list)
+        return $http.post('/api/todo_lists/', list)
                     .then(function(response){
                       return response.data;
                     },
@@ -40,7 +40,7 @@ angular
       },
 
       deleteTodoList: function(id){
-        return $http.delete('http://localhost:3000/api/todo_lists/'+id)
+        return $http.delete('/api/todo_lists/'+id)
                     .then(function(response){
                       return response.data;
                     },
