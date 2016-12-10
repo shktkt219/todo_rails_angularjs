@@ -2,6 +2,11 @@ module Api
   class TodosController < ApplicationController
     before_action :set_todo_list
 
+    def show
+      todo
+      render json: @todo, status: 201
+    end
+
     def create
       todo = @todo_list.todos.create(todo_params)
       render json: todo, status: 201

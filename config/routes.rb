@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     resources :todo_lists, only: [:index, :show, :create, :destroy] do
-      resources :todos, except: [:index, :new, :edit, :show]
+      resources :todos, except: [:index, :new, :edit]
     end
   end
 
