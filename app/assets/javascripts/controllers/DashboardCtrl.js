@@ -35,7 +35,6 @@ angular
 
     self.submit = function(){
       self.createList(self.list);
-      self.lists.push(self.list);
       self.reset();
     };
 
