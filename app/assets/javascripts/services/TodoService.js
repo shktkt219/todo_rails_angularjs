@@ -6,8 +6,8 @@ angular
 
      return {
 
-       createTodo: function(todo){
-         return $http.post('http://localhost:3000/api/todo_lists/', todo)
+       createTodo: function(listId, todo){
+         return $http.post('/api/todo_lists/'+ listId + '/todos/', todo)
                      .then(function(response){
                        return response.data;
                      },
@@ -17,8 +17,8 @@ angular
                      });
        },
 
-       updateTodo: function(todo, id){
-         return $http.put('http://localhost:3000/api/todo_lists/'+id, todo)
+       updateTodo: function(listId, todo, id){
+         return $http.put('/api/todo_lists/'+ listId + '/todos/'+id, todo)
                      .then(function(response){
                        return response.data;
                      },
@@ -28,8 +28,8 @@ angular
                      });
        },
 
-       deleteTodo: function(id){
-         return $http.delete('http://localhost:3000/api/todo_lists/'+id)
+       deleteTodo: function(listId, id){
+         return $http.delete('/api/todo_lists/'+listId + '/todos/'+id)
                      .then(function(response){
                        return response.data;
                      },
@@ -38,5 +38,5 @@ angular
                        return $q.reject(errorResponse);
                      });
        }
-     }
+     };
 }]);
