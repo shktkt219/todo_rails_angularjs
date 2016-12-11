@@ -4,21 +4,20 @@
   <div class="panel panel-default">
 
     <div class="panel-heading">
-      <h4>{{list.name}}</h4>
+      <h4>{{ vm.list.name}}</h4>
     </div>
 
-    <form id="new_todo" ng-submit="addTodo(todoDescription)">
+    <form id="new_todo" ng-submit="vm.addTodo()">
       <div class="input-group">
         <input type="text"
-               id="todoDescription"
                class="form-control input-lg"
                autofocus="autofocus"
                maxlength="255"
                placeholder="New Task"
-               ng-model="todoDescription"
+               ng-model="vm.todo.description"
                required="required">
-        <div ng-messages="form.todoDescription.$error"
-             ng-if="form.todoDescription.$touched">
+        <div ng-messages="form.vm.todo.description.$error"
+             ng-if="form.vm.todo.description.$touched">
           <div ng-message="required">Task is required!</div>
           <div ng-message="maxlength">Must be less than 255 characters!</div>
         </div>
@@ -30,35 +29,35 @@
       <div class="btn-group" role="group">
         <button type="button"
                 class="btn btn-default"
-                ng-click="changeFilter()"
-                ng-class="{active: !currentFilter}">
+                ng-click="vm.changeFilter()"
+                ng-class="{active: !vm.currentFilter}">
                 <span class="badge">Task All</span>
         </button>
       </div>
       <div class="btn-group" role="group">
         <button type="button"
                 class="btn btn btn-default"
-                ng-click="changeFilter(filter.remaining)"
-                ng-class="{active: currentFilter == filter.remaining}">Incompleted
+                ng-click="vm.changeFilter(vm.filter.remaining)"
+                ng-class="{active: vm.currentFilter == vm.filter.remaining}">Incompleted
         </button>
       </div>
       <div class="btn-group" role="group">
         <button type="button"
                 class="btn btn-default"
-                ng-click="changeFilter(filter.done)"
-                ng-class="{active: currentFilter == filter.done}">Completed
+                ng-click="vm.changeFilter(vm.filter.done)"
+                ng-class="{active: vm.currentFilter == vm.filter.done}">Completed
         </button>
       </div>
     </div>
 
     <ul class="list-group">
       <li class="list-group-item"
-          ng-repeat="todo in list.todos | filter:currentFilter"
+          ng-repeat="todo in vm.list.todos | filter:vm.currentFilter"
           ng-class="{ done: todo.done }">
         <div class="todo-done">
           <input type="checkbox"
                  ng-model="todo.done"
-                 ng-click="toggleTodo(todo)">
+                 ng-click="vm.toggleTodo(todo, todo.id)">
         </div>
         <div class="todo-description">
           <span class="done-{{todo.done}}">{{todo.description}}</span>
@@ -66,7 +65,7 @@
         <div class="todo-buttons pull-right">
           <button class="btn btn-danger btn-xs pull-right"
                   type="button"
-                  ng-click="deleteTodo(todo)">
+                  ng-click="vm.removeTodo(todo.id)">
             <span>Delete</span>
           </button>
         </div>
