@@ -23,7 +23,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
     })
 
     .state('index', {
-      url: '/',
+      url: '/index',
       templateUrl: '/templates/index.html'
     })
 
@@ -38,13 +38,13 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
     })
 
     .state('index.dashboard', {
-      url: 'dashboard',
+      url: '/dashboard',
       templateUrl: '/templates/dashboard.html',
       controller: 'DashboardCtrl as ctrl'
     })
 
     .state('index.todolist', {
-      url: 'todo_lists/:list_id',
+      url: '/todo_lists/:list_id',
       templateUrl: '/templates/todo_list.html',
       controller: 'TodoListCtrl as vm'
     })
