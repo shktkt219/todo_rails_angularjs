@@ -25,13 +25,13 @@
                 type="text"
                 autofocus="autofocus"
                 placeholder="New List Name"
-                maxlength="255"
+                maxlength="20"
                 ng-model="ctrl.list.name"
                 required="required">
           <div ng-messages="form.ctrl.list.name.$error"
                ng-if="form.ctrl.list.name.$touched">
             <div ng-message="required">List name is required!</div>
-            <div ng-message="maxlength">Must be less than 255 characters!</div>
+            <div ng-message="maxlength">Must be less than 20 characters!</div>
           </div>
         <span class="input-group-btn">
           <button class="btn btn-primary btn-lg"
