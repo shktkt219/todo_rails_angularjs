@@ -12,14 +12,14 @@
         <input type="text"
                class="form-control input-lg"
                autofocus="autofocus"
-               maxlength="255"
+               maxlength="25"
                placeholder="New Task"
                ng-model="vm.todo.description"
                required="required">
         <div ng-messages="form.vm.todo.description.$error"
              ng-if="form.vm.todo.description.$touched">
           <div ng-message="required">Task is required!</div>
-          <div ng-message="maxlength">Must be less than 255 characters!</div>
+          <div ng-message="maxlength">Must be less than 25 characters!</div>
         </div>
         <button class="btn btn-primary btn-lg" type="submit">Add</button>
       </div>
