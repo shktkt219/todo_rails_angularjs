@@ -13,12 +13,12 @@ app.config(function($httpProvider){
 
 
 app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
-  $urlRouterProvider.otherwise('/home');
+  $urlRouterProvider.otherwise('/');
 
   $stateProvider
 
     .state('home',{
-      url: '/home',
+      url: '/',
       templateUrl: '/templates/home.html'
     })
 
