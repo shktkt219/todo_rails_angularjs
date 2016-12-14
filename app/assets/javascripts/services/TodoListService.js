@@ -1,5 +1,8 @@
 'use strict';
 
+// $q : A service that helps you run functions asynchronously,
+// and use their return values (or exceptions) when they are done processing.
+
 angular
   .module('todoApp')
   .factory('TodoListService', ['$http', '$q', function($http, $q){
