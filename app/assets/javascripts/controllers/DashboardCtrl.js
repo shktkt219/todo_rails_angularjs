@@ -37,6 +37,7 @@ angular
     self.deleteList = function(id){
       TodoListService.deleteTodoList(id)
                      .then(function(resp) {
+                       alert('Delete List?');
                        for(var i = 0; i < self.lists.length; i++ ){
                          if(self.lists[i].id === id)
                          self.lists.splice(i,1);
@@ -52,15 +53,15 @@ angular
     //   self.reset();
     // };
 
-    self.remove = function(id){
-      alert('Delete List?');
-      if(self.list.id === id){
-          self.reset();
-        }
-        self.deleteList(id);
-    };
+    // self.remove = function(id){
+    //
+    //   if(self.list.id === id){
+    //       self.reset();
+    //     }
+    //     self.deleteList(id);
+    // };
 
-    self.reset = function(){
-      self.list = { id: null, name: ''};
-    };
+    // self.reset = function(){
+    //   self.list = { id: null, name: ''};
+    // };
   }]);
