@@ -24,6 +24,7 @@ angular
                      .then(function(resp){
                        var list = resp;
                        self.lists.push({
+                         id: list.id,
                          name: list.name,
                          todos: []
                        });
