@@ -17,26 +17,39 @@ angular
                      });
     };
 
+    self.lists = self.getAllTodoLists();
+
     self.createList = function(list){
       TodoListService.createTodoList(list)
-                     .then(self.getAllTodoLists, function(errorResponse){
+                     .then(function(resp){
+                       var list = resp;
+                       self.lists.push({
+                         name: list.name,
+                         todos: []
+                       });
+                       self.list.name = "";
+                     }, function(errorResponse){
                        console.error('Error while creating list');
                      });
     };
 
     self.deleteList = function(id){
       TodoListService.deleteTodoList(id)
-                     .then(self.getAllTodoLists, function(errorResponse){
+                     .then(function(resp) {
+                       for(var i = 0; i < self.lists.length; i++ ){
+                         if(self.lists[i].id === id)
+                         self.lists.splice(i,1);
+                       }
+                      //  console.log("testing");
+                     }, function(errorResponse){
                         console.error('Error while deleting list');
                      });
     };
 
-    self.getAllTodoLists();
-
-    self.submit = function(){
-      self.createList(self.list);
-      self.reset();
-    };
+    // self.submit = function(){
+    //   self.createList(self.list);
+    //   self.reset();
+    // };
 
     self.remove = function(id){
       alert('Delete List?');
