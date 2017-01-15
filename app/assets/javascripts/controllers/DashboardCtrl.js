@@ -42,26 +42,9 @@ angular
                          if(self.lists[i].id === id)
                          self.lists.splice(i,1);
                        }
-                      //  console.log("testing");
                      }, function(errorResponse){
                         console.error('Error while deleting list');
                      });
     };
 
-    // self.submit = function(){
-    //   self.createList(self.list);
-    //   self.reset();
-    // };
-
-    // self.remove = function(id){
-    //
-    //   if(self.list.id === id){
-    //       self.reset();
-    //     }
-    //     self.deleteList(id);
-    // };
-
-    // self.reset = function(){
-    //   self.list = { id: null, name: ''};
-    // };
   }]);
